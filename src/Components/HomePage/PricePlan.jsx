@@ -1,28 +1,25 @@
-'use client'
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
+const fetchPricePlans = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/packages`,
+    {
+      cache: "no-store",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+async function PricePlan() {
+  const pricingPlans = await fetchPricePlans()
 
-function PricePlan() {
-  const [pricingPlans, setPricingPlans] = useState([])
 
-  useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await fetch("/api/packages");
-          const data = await response.json();
-          setPricingPlans(data);
-        } catch (error) {
-          console.error("Error fetching services data", error);
-        }
-      };
-      fetchData();
-    }, []);
   return (
     <div className="mt-7">
       <h2 className="titleText font-semibold text-lg">Price Plans</h2>
       <div className="w-full mt-6 grid sm:grid-col-1 md:grid-cols-3 lg:grid-cols-3 gap-3">
-        {pricingPlans.map((plan, index) => {
+        {pricingPlans?.map((plan, index) => {
           return (
             <div
               key={index}

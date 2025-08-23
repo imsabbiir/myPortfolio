@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -17,10 +16,6 @@ function Language({languages}) {
     // Clean up
     return () => observer.disconnect();
   }, []);
-  console.log(
-    "Developer data get from mongodb and console from ",
-    languages
-  );
 
   return (
     <div className="border-b-[1px] border-[#656566] py-5 flex gap-2 justify-around">

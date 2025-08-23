@@ -1,50 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
 function PersonalInfo() {
-  const title = {
-    hidden: { x: -30, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.3,
-        delay: 0.5,
-      },
-    },
-  };
-  const item1 = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.5,
-      },
-    },
-  };
-  const item2 = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.7,
-      },
-    },
-  };
-  const item3 = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5,
-        delay: 0.9,
-      },
-    },
-  };
   const infoSections = [
     {
       title: "Location",
@@ -56,7 +11,7 @@ function PersonalInfo() {
       animation: "item1",
     },
     {
-      title: "Contact",
+      title: "Social",
       items: [
         {
           label: "Facebook:",
@@ -77,7 +32,7 @@ function PersonalInfo() {
       animation: "item2",
     },
     {
-      title: "Phone",
+      title: "Contact",
       items: [
         { label: "Email:", value: "imsabbiir@gmail.com" },
         { label: "Whatsapp:", value: "01326650567" },
@@ -89,9 +44,6 @@ function PersonalInfo() {
   return (
     <div className="text-xs font-thin">
       <h2
-        variants={title}
-        initial="hidden"
-        animate="visible"
         className="text-lg font-semibold titleText"
       >
         Contact

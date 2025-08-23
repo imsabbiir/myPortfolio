@@ -21,7 +21,6 @@ export async function POST(request) {
   try {
     await dbConnect();
     const data = await request.json();
-    console.log("Received Data:", data);
 
     const { title, details } = data;
 

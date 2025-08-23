@@ -24,7 +24,7 @@ function ContactForm() {
 
       const data = await res.json();
       if (res.ok) {
-        console.log("Message sent:", data);
+
         alert("Form submitted successfully!");
         e.target.reset();
       } else {

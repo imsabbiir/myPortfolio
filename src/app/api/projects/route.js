@@ -20,7 +20,6 @@ export async function POST(request) {
     await dbConnect();
 
     const data = await request.json();
-    console.log("Received Data:", data);
 
     const newProject = new Project(data);
     await newProject.save();

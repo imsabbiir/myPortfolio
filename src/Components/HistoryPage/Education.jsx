@@ -1,27 +1,25 @@
-"use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-function Education() {
-  const [educations, setEducations] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/history/educations");
-        const data = await response.json();
-        setEducations(data);
-      } catch (error) {
-        console.error("Error fetching Education data", error);
-      }
-    };
-    fetchData();
-  }, []);
+import React from "react";
+const fetchEducations = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/history/educations`,
+    {
+      cache: "no-store",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+async function Education() {
+  const educations = await fetchEducations();
+
 
   return (
     <div>
       <h2 className=" text-lg font-semibold titleText">Education</h2>
       <div className="lists mt-6">
         <div className="flex flex-col gap-8 w-[85%]">
-          {educations.map((education, index) => {
+          {educations?.map((education, index) => {
             return (
               <div
                 key={index}

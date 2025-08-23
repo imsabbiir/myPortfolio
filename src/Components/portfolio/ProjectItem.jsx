@@ -5,10 +5,18 @@ import React, { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-function ProjectItem({ filterWith }) {
+const NavButtons = [
+  { id: "1", category: "all", value: "All" },
+  { id: "2", category: "design", value: "Design" },
+  { id: "3", category: "development", value: "Development" },
+  { id: "4", category: "wordpress", value: "WordPress" },
+  { id: "5", category: "blogger", value: "Blogger" },
+];
+function ProjectItem() {
   const route = useRouter();
   const [portfolioItem, setPortfolioItem] = useState([]);
   const [currentProjects, setCurrentProjects] = useState([]);
+  const [filterWith, setFilterWith] = useState("all");
   const [projectrow, setProjectrow] = useState(2);
   useEffect(() => {
     const fetchData = async () => {
@@ -34,11 +42,24 @@ function ProjectItem({ filterWith }) {
     const lastProjectIndex = projectrow * projectShowPerClick;
     const firstProjectIndex = 0;
     setCurrentProjects(
-      filteredPortfolio.slice(firstProjectIndex, lastProjectIndex)
+      filteredPortfolio?.slice(firstProjectIndex, lastProjectIndex)
     );
   }, [projectrow, filteredPortfolio]);
   return (
     <>
+    <div className="w-full h-[50px] flex flex-wrap gap-3 md:gap-10 items-center mt-5 mb-4 md:mt-3 md:font-semibold">
+      {
+        NavButtons.map((dt) => (
+          <button
+            key={dt.id}
+            onClick={() => setFilterWith(dt.category)}
+            className={`cursor-pointer textWithHover text-xs md:text-base ${filterWith === dt.category ? 'activeText' : 'titleText'}`}
+          >
+            {dt.value}
+          </button>
+        ))
+      }
+    </div>
       <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
         {currentProjects.map((currentProject) => {
           return (

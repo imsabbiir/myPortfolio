@@ -2,11 +2,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import NavigationMenu from "./NavigationMenu";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import ThemeButton from "@/Components/themeButton";
 
-gsap.registerPlugin(useGSAP);
 function MobileNavBar() {
   const [isNavBarOpen, setIsNavBarOpen] = useState(false);
   const menuRef = useRef(null);
@@ -27,12 +24,14 @@ function MobileNavBar() {
   if (isNavBarOpen) {
     children.style.pointerEvents = "none";
     childrenOverlay.classList.remove("opacity-0");
+    childrenOverlay.classList.remove("hidden");
     childrenOverlay.classList.add("opacity-100");
     document.body.style.overflow = "hidden";
   } else {
     children.style.pointerEvents = "all";
     childrenOverlay.classList.remove("opacity-100");
     childrenOverlay.classList.add("opacity-0");
+    childrenOverlay.classList.add("hidden");
     document.body.style.overflow = "auto";
   }
 }, [isNavBarOpen]);

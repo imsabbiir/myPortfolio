@@ -1,9 +1,8 @@
-'use client'
-import { useRouter } from "next/navigation";
 import React from "react";
+import BannerButton from "../BannerButton";
 
 function ContactBanner() {
-    const route = useRouter();
+
   return (
     <div className="bg w-full h-[270px] mt-6">
       <div className="details">
@@ -17,12 +16,8 @@ function ContactBanner() {
                 Let's work together!
               </p>
             </div>
-            <button
-              className="py-3 px-5 activeBg text-[#20202a] text-[11px] font-semibold cursor-pointer"
-              onClick={() => route.push("/contact")}
-            >
-              CONTACT ME
-            </button>
+            <BannerButton title={"CONTACT ME"} address={"contact"}/>
+            
           </div>
         </div>
       </div>

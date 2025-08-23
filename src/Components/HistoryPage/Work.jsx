@@ -1,20 +1,17 @@
-'use client'
-import React, { useEffect, useState } from "react";
+import React from "react";
+const fetchExperiences = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/history/experiences`,
+    {
+      cache: "no-store",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+async function Work() {
+  const experiences = await fetchExperiences();
 
-function Work() {
-  const [experiences, setExperiences] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/history/experiences");
-        const data = await response.json();
-        setExperiences(data);
-      } catch (error) {
-        console.error("Error fetching doctors data", error);
-      }
-    };
-    fetchData();
-  }, []);
 
   return (
     <div>
@@ -23,7 +20,7 @@ function Work() {
       </h2>
       <div className="lists mt-6">
         <div className="flex flex-col gap-8 w-[85%]">
-          {experiences.map((experience, index) => {
+          {experiences?.map((experience, index) => {
             return (
               <div
                 key={index}

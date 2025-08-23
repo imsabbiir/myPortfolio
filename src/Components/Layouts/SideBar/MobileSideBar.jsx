@@ -16,12 +16,14 @@ function MobileSideBar() {
   if (sideBarOpen) {
     children.style.pointerEvents = "none";
     childrenOverlay.classList.remove("opacity-0");
+    childrenOverlay.classList.remove("hidden");
     childrenOverlay.classList.add("opacity-100");
     document.body.style.overflow = "hidden";
   } else {
     children.style.pointerEvents = "all";
     childrenOverlay.classList.remove("opacity-100");
     childrenOverlay.classList.add("opacity-0");
+    childrenOverlay.classList.add("hidden");
     document.body.style.overflow = "auto";
   }
 }, [sideBarOpen]);

@@ -1,9 +1,7 @@
-"use client";
 import NavBar from "@/Components/Layouts/NavBar/NavBar";
 import LeftSideBar from "@/Components/Layouts/SideBar/LeftSideBar";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Children from "@/Components/Layouts/Main/Children";
-import ProfileModal from "@/Components/ProfileModal";
 import MobileNavLayout from "@/Components/MobileNavLayout";
 import Preloader from "@/Components/Preloader";
 import MobileNavBar from "@/Components/Layouts/NavBar/MobileNavBar";
@@ -13,7 +11,7 @@ function Layout({ children }) {
   return (
     <div className="w-full h-screen overflow-hidden relative mainBg">
       {/* Preloader */}
-      <Preloader />
+      {/* <Preloader /> */}
 
       {/* Main Content */}
       <MobileNavLayout />

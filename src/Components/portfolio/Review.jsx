@@ -7,42 +7,8 @@ import "swiper/css/autoplay";
 import "swiper/css/navigation";
 import { Autoplay, Navigation } from "swiper/modules";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
-import mehedi from "@/media/mehedi.jpg";
-import imtiaz from "@/media/Imtiaz.jpg";
-import inLtd from "@/media/in.jpg";
-import sahariyar from "@/media/sahariyar.jpg";
 import Image from "next/image";
 
-const reviews = [
-  {
-    name: "Md Mehedi Hasan",
-    title: "Game Developer",
-    image: mehedi,
-    message:
-      "“Sabbir did a fantastic job customizing my Blogspot theme. He was quick to understand my vision and executed the changes with great precision. The layout looks clean and professional, and it has significantly improved the user experience on my blog. Highly recommended!”",
-  },
-  {
-    name: "Imtiaz Ahmed",
-    title: "Marketing Expert",
-    image: imtiaz,
-    message:
-      "“I collaborated with Sabbir for a WordPress theme customization project, and I’m truly impressed with his professionalism. He delivered everything on time and went beyond expectations by optimizing the site’s speed and responsiveness. I’ll definitely work with him again.”",
-  },
-  {
-    name: "Sahariyar Hasan",
-    title: "Web Designer",
-    image: sahariyar,
-    message:
-      "“I hired Sabbir to build a responsive landing page with multiple sections, and he nailed it. The design is sleek, and the animations are smooth. He was open to feedback and made all requested revisions promptly. Great experience!”",
-  },
-  {
-    name: "IN Technology Ltd",
-    title: "Information Technology Limited",
-    image: inLtd,
-    message:
-      "“Sabbir delivered an outstanding WordPress website for our company. He managed the entire design and development process efficiently and communicated clearly throughout. The final result is user-friendly, modern, and perfectly aligned with our brand. We’re very satisfied with his work.”",
-  },
-];
 
 function Review() {
   const swiperRef = useRef(null);
@@ -87,7 +53,7 @@ function Review() {
         }}
         className=""
       >
-        {reviews.map((review, index) => (
+        {reviews?.map((review, index) => (
           <SwiperSlide
             key={index}
             className="boxBg p-10 w-1/2 rounded-lg relative"

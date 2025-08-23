@@ -153,7 +153,7 @@ function Page() {
       }
 
       const result = await res.json();
-      console.log("Project created:", result);
+
 
       alert("Project submitted successfully!");
       setFormData(initialForm);

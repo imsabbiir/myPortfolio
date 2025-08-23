@@ -1,4 +1,3 @@
-'use client'
 import Accomplishments from "@/Components/Accomplishments";
 import Banner from "@/Components/HomePage/Banner";
 import PricePlan from "@/Components/HomePage/PricePlan";

@@ -38,7 +38,7 @@ const Settings = () => {
       reader.onloadend = () => {
         setTempValues((prev) => ({
           ...prev,
-          profileImage: reader.result, // base64 preview
+          profileImage: reader.result,
         }));
       };
       reader.readAsDataURL(file);
@@ -60,32 +60,53 @@ const Settings = () => {
   };
 
   const handleSave = async () => {
-    console.log("Data to be saved:", tempValues);
-
-    try {
-      const response = await fetch("/api/developerdetails", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(tempValues),
+  try {
+    let imageUrl = tempValues.profileImage;
+    if (imageUrl && imageUrl.startsWith("data:image")) {
+      const formData = new FormData();
+      formData.append("image", imageUrl.split(",")[1]);
+      const imgbbRes = await fetch(`https://api.imgbb.com/1/upload?key=5b2ef45b60d101944000e14136cc59a6`, {
+        method: "POST",
+        body: formData,
       });
 
-      const result = await response.json();
+      const imgbbData = await imgbbRes.json();
 
-      if (response.ok) {
-        console.log("Data successfully updated:", result);
-        setDetails(tempValues);
-        setEditSection(null);
+      if (imgbbData.success) {
+        imageUrl = imgbbData.data.url;
       } else {
-        console.error("Failed to update:", result.message);
-        alert(result.message || "Update failed");
+        alert("Image upload failed");
+        return;
       }
-    } catch (error) {
-      console.error("Error while saving:", error);
-      alert("An error occurred while saving");
     }
-  };
+
+    // Prepare data with the updated image URL
+    const bodyData = {
+      ...tempValues,
+      profileImage: imageUrl,
+    };
+    const response = await fetch("/api/developerdetails", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyData),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      setDetails(bodyData);
+      setEditSection(null);
+    } else {
+      alert(result.message || "Update failed");
+    }
+  } catch (error) {
+    console.error("Error while saving:", error);
+    alert("An error occurred while saving");
+  }
+};
+
 
   // Check if any value changed compared to original details
   const isChanged = () => {

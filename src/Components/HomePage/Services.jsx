@@ -1,26 +1,22 @@
-"use client";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-
-function Services() {
-  const [services, setServices] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/services");
-        const data = await response.json();
-        setServices(data);
-      } catch (error) {
-        console.error("Error fetching services data", error);
-      }
-    };
-    fetchData();
-  }, []);
+import React from "react";
+const fetchServices = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/api/services`,
+    {
+      cache: "no-store",
+    }
+  );
+  const data = await res.json();
+  return data;
+};
+async function Services() {
+  const services = await fetchServices();
   return (
     <div className="mt-7">
       <h2 className="text-base titleText font-semibold ">My Services</h2>
       <div className="w-full mt-6 grid sm:grid-col-1 md:grid-cols-3 lg:grid-cols-3 gap-3">
-        {services.map((service) => {
+        {services?.map((service) => {
           return (
             <div key={service._id} className="px-4 py-6 gradientBg">
               <h2 className="text-sm font-semibold titleText mb-4">
