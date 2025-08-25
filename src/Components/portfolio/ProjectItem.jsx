@@ -2,8 +2,6 @@
 import Image from "next/image";
 import DOMPurify from "dompurify";
 import React, { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 const NavButtons = [
   { id: "1", category: "all", value: "All" },
@@ -63,9 +61,8 @@ function ProjectItem() {
       <div className="mt-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
         {currentProjects.map((currentProject) => {
           return (
-            <motion.div
-              key={currentProject._id}
-              layoutId={`card-${currentProject._id}`}
+            <div
+              key={currentProject.id}
               className="rounded-2xl overflow-hidden cursor-pointer shadow-lg relative h-64 group "
               onClick={() => route.push(`/portfolio/${currentProject._id}`)}
             >
@@ -95,7 +92,7 @@ function ProjectItem() {
                   }}
                 ></div>
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
