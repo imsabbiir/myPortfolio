@@ -7,7 +7,6 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import "swiper/css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 
@@ -76,21 +75,7 @@ function GallerySlider({ images }) {
           ))}
         </CarouselContent>
       </Carousel>
-      {/* <div className="flex justify-between pt-4">
-        <button
-          onClick={() => api?.scrollPrev()}
-          className="activeText text-xl font-semibold cursor-pointer"
-        >
-          <IoIosArrowBack size={24} />
-        </button>
-
-        <button
-          onClick={() => api?.scrollNext()}
-          className="activeText text-xl font-semibold cursor-pointer"
-        >
-          <IoIosArrowForward size={24} />
-        </button>
-      </div> */}
+     
 
       <div className="flex mt-4 gap-0.5 ">
         {images?.map((_, index) => (
