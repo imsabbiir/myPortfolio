@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { GoStarFill } from "react-icons/go";
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 
 export function ReviewCarousel() {
   const [reviews, setReviews] = useState([]);
