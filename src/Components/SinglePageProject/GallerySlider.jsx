@@ -77,7 +77,7 @@ function GallerySlider({ images }) {
       </Carousel>
      
 
-      <div className="flex mt-4 gap-0.5 ">
+      {/* <div className="flex mt-4 gap-0.5 ">
         {images?.map((_, index) => (
           <button
             key={index}
@@ -87,7 +87,7 @@ function GallerySlider({ images }) {
             }`}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

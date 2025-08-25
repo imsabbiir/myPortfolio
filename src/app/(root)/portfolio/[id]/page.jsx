@@ -26,7 +26,7 @@ async function Page({ params }) {
             {project.projectType}
           </p>
         </div>
-        <GallerySlider images={project.images}/>
+        {/* <GallerySlider images={project.images}/> */}
         <SingleProjectDescription project={project}/>
         <RelatedProjects id={project._id} projectType={project.projectType}/>
       </div>
