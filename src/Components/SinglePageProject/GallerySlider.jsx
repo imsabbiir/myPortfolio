@@ -6,7 +6,7 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from "@/components/ui/carousel";
+} from "@/Components/ui/carousel";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 
