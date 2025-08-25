@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import "swiper/css";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+
 
 function GallerySlider({ images }) {
   const [api, setApi] = useState(null);
