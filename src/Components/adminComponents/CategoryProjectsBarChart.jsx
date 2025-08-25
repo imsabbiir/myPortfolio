@@ -18,7 +18,7 @@ function CategoryProjectsBarChart() {
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ delay: 0.4 }}
 		>
-			<h2 className='text-lg font-medium mb-4 titleText'>Category Wise Projects</h2>
+			<h2 className='md:text-lg font-medium mb-4 titleText'>Category Wise Projects</h2>
 
 			<div className='h-80'>
 				<ResponsiveContainer>

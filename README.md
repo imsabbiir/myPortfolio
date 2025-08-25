@@ -27,7 +27,20 @@
 
 
 
-
+<div className="flex justify-between pt-4">
+        <button
+          onClick={() => swiperRef.current?.slidePrev()}
+          className="activeText text-xl font-semibold cursor-pointer"
+        >
+          <IoIosArrowBack />
+        </button>
+        <button
+          onClick={() => swiperRef.current?.slideNext()}
+          className="activeText text-xl font-semibold cursor-pointer"
+        >
+          <IoIosArrowForward />
+        </button>
+      </div>
 
 
 

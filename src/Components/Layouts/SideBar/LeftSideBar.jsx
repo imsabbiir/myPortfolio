@@ -21,28 +21,27 @@ export default function LeftSideBar() {
     fetchDetails();
   }, []);
 
-  if (!details) return <div className="p-4">Loading...</div>; // optional loading state
 
   return (
     <div
-      className="sideBar boxBg static left-0 h-full lg:flex flex-col justify-between w-[290px] flex-shrink-0 transition-all duration-500 ease-in-out hidden"
+      className="sideBar boxBg static -left-[290px] h-full lg:flex flex-col justify-between w-[290px] flex-shrink-0 transition-all duration-500 ease-in-out hidden"
     >
       <Profile
-        profileSrc={details.profileImage}
-        name={details.name}
-        profession={details.profession}
+        profileSrc={details?.profileImage}
+        name={details?.name}
+        profession={details?.profession}
       />
       <Skills
-        skills={details.skills}
-        residence={details.residence}
-        city={details.city}
-        district={details.district}
+        skills={details?.skills}
+        residence={details?.residence}
+        city={details?.city}
+        district={details?.district}
       />
       <SocialIcon
-        instagram={details.instagram}
-        facebook={details.facebook}
-        twitter={details.twitter}
-        linkedin={details.linkedin}
+        instagram={details?.instagram}
+        facebook={details?.facebook}
+        twitter={details?.twitter}
+        linkedin={details?.linkedin}
       />
     </div>
   );

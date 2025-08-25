@@ -10,7 +10,7 @@ function StatCard({name, icon: Icon, value}) {
 					<Icon size={20} className='mr-2 activeText' />
 					{name}
 				</span>
-				<p className='mt-1 text-3xl font-semibold subTitleText'>{value}</p>
+				<p className='mt-1 text-xl md:text-3xl font-semibold subTitleText'>{value}</p>
 			</div>
 		</div>
   )

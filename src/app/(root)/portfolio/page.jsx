@@ -11,7 +11,7 @@ function page() {
   return (
     <div className="p-5">
       <ProjectItem />
-      {/* <Review /> */}
+      <Review />
       <Accomplishments />
       <ContactBanner />
     </div>

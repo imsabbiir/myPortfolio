@@ -11,7 +11,6 @@ function NavigationMenu({ isNavBarOpen, setIsNavBarOpen }) {
       home: "home",
       history: "history",
       portfolio: "portfolio",
-      blogs: "blogs",
       contact: "contact",
     }[pathSegment] || "";
 
@@ -19,7 +18,6 @@ function NavigationMenu({ isNavBarOpen, setIsNavBarOpen }) {
     { menu: "home", link: "/" },
     { menu: "history", link: "/history" },
     { menu: "portfolio", link: "/portfolio" },
-    { menu: "blogs", link: "/blogs" },
     { menu: "contact", link: "/contact" },
   ];
   return (

@@ -1,15 +1,21 @@
-'use client'
-import React, { useEffect } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
 import { Fancybox as NativeFancybox } from "@fancyapps/ui";
-
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import "swiper/css";
-import "swiper/css/pagination";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 function GallerySlider({ images }) {
+  const [api, setApi] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Fancybox init
   useEffect(() => {
     if (window.location.hash) {
       history.replaceState(
@@ -23,12 +29,8 @@ function GallerySlider({ images }) {
       animationDuration: 600,
       transitionEffect: "slide",
       transitionDuration: 600,
-      Toolbar: {
-        display: ["zoom", "share", "slideshow", "thumbs", "close"],
-      },
-      Thumbs: {
-        autoStart: true,
-      },
+      Toolbar: { display: ["zoom", "share", "slideshow", "thumbs", "close"] },
+      Thumbs: { autoStart: true },
       Hash: false,
     });
 
@@ -37,52 +39,70 @@ function GallerySlider({ images }) {
     };
   }, []);
 
+  // Update active index when slide changes
+  useEffect(() => {
+    if (!api) return;
+    api.on("select", () => {
+      setActiveIndex(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
-    <div className="">
-      <Swiper
-        spaceBetween={30}
-        slidesPerView={2}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
+    <div className="relative w-full">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
         }}
-        pagination={{
-          el: ".custom-swiper-pagination",
-          clickable: true,
-        }}
-        navigation={false}
-        modules={[Autoplay, Pagination]}
-        breakpoints={{
-          0: {
-            slidesPerView: 1,
-          },
-          640: {
-            slidesPerView: 1,
-          },
-          768: {
-            slidesPerView: 2,
-          },
-        }}
+        setApi={setApi}
       >
-        {images?.map((image, index) => (
-          <SwiperSlide key={index}>
-            <a
-              data-fancybox="gallery"
-              href={image}
-              className="art-a art-portfolio-item-frame art-horizontal"
-            >
-              <Image
-                src={image}
-                alt={`Gallery image ${index + 1}`}
-                width={1000}
-                height={500}
-                className="w-full object-cover"
-              />
-            </a>
-          </SwiperSlide>
+        <CarouselContent className="flex">
+          {images?.map((image, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <a
+                data-fancybox="gallery"
+                href={image}
+                className="art-a art-portfolio-item-frame art-horizontal"
+              >
+                <Image
+                  src={image}
+                  alt={`Gallery image ${index + 1}`}
+                  width={1000}
+                  height={500}
+                  className="w-full object-cover"
+                />
+              </a>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      {/* <div className="flex justify-between pt-4">
+        <button
+          onClick={() => api?.scrollPrev()}
+          className="activeText text-xl font-semibold cursor-pointer"
+        >
+          <IoIosArrowBack size={24} />
+        </button>
+
+        <button
+          onClick={() => api?.scrollNext()}
+          className="activeText text-xl font-semibold cursor-pointer"
+        >
+          <IoIosArrowForward size={24} />
+        </button>
+      </div> */}
+
+      <div className="flex mt-4 gap-0.5 ">
+        {images?.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            className={`h-1.5 rounded-full transition-all duration-150 ease-in-out cursor-pointer ${
+              activeIndex === index ? "bg-yellow-500 w-5" : "bg-gray-400 w-3"
+            }`}
+          />
         ))}
-      </Swiper>
-      <div className="custom-swiper-pagination flex items-center mt-4" />
+      </div>
     </div>
   );
 }

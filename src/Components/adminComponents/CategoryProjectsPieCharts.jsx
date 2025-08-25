@@ -23,7 +23,7 @@ function CategoryProjectsPieCharts() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.3 }}
     >
-      <h2 className="text-lg font-medium mb-4 titleText">
+      <h2 className="md:text-lg font-medium mb-4 titleText">
         Category Wise Projects
       </h2>
       <div className="h-80">
@@ -34,10 +34,10 @@ function CategoryProjectsPieCharts() {
               cx={"50%"}
               cy={"50%"}
               labelLine={false}
-              outerRadius={80}
+              outerRadius={70}
               fill="#8884d8"
               dataKey="value"
-              label={({ name, percent }) =>
+              label={({ percent }) =>
                 `${name} ${(percent * 100).toFixed(0)}%`
               }
             >

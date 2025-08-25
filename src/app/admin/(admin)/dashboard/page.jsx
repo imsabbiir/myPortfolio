@@ -8,13 +8,13 @@ import React from 'react'
 function page() {
   return (
     <div>
-      <div className='grid grid-cols-4 gap-5'>
+      <div className='grid md:grid-cols-4 gap-5'>
         <StatCard name={"Total Projects"} icon={Package} value={"17"}/>
         <StatCard name={"Years Of Experience"} icon={Clock} value={"3+"}/>
         <StatCard name={"Happy Customers"} icon={Users} value={"6+"}/>
         <StatCard name={"Honors and Awards"} icon={Award} value={"00"}/>
       </div>
-      <div className='mt-5 grid grid-cols-2 gap-5'>
+      <div className='mt-5 grid md:grid-cols-2 gap-5'>
         <CategoryProjectsPieCharts />
         <CategoryProjectsBarChart />
       </div>

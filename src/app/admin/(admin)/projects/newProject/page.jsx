@@ -167,14 +167,14 @@ function Page() {
   return (
     <div>
       <h2 className="text-lg titleText">Add New Project</h2>
-      <div className="grid grid-cols-6 gap-14 mt-5">
-        <div className="col-span-4">
+      <div className="grid lg:grid-cols-6 gap-14 mt-5">
+        <div className="col-span-1 w-full lg:col-span-4">
           <input
             name="title"
             value={formData.title}
             placeholder="Project Name"
             onChange={(e) => updateForm(e.target.name, e.target.value)}
-            className="gradientBg w-full subTitleText font-thin rounded px-4 outline-none py-2"
+            className="gradientBg w-dull subTitleText font-thin rounded px-4 outline-none py-2"
           />
           <TinyEditor
             value={formData.description}
@@ -183,7 +183,7 @@ function Page() {
           <MultipleImageUpload onFilesChange={setSelectedImages} />
         </div>
 
-        <div className="col-span-2">
+        <div className="lg:col-span-2">
           <div className="gradientBg shadow-lg p-7 rounded flex flex-col gap-3">
             <div className="flex gap-3 mb-3">
               <button

@@ -168,11 +168,11 @@ export default function Page() {
       )
     ) : (
       <>
-        <span className="titleText capitalize">
+        <span className="titleText capitalize text-sm md:text-base">
           {type !== "others" ? `${item.title}:` : item}
         </span>
         {type !== "others" && (
-          <span className="subTitleText">{item.percent}</span>
+          <span className="subTitleText text-sm md:text-base">{item.percent}</span>
         )}
       </>
     )}
@@ -191,7 +191,7 @@ export default function Page() {
   );
 
   return (
-    <div className="grid grid-cols-2 gap-7">
+    <div className="grid md:grid-cols-2 gap-7">
       <div className="grid gap-7">
         {renderList("languages")}
         {renderList("technologies")}

@@ -43,6 +43,8 @@ function ProjectItem() {
       filteredPortfolio?.slice(firstProjectIndex, lastProjectIndex)
     );
   }, [projectrow, filteredPortfolio]);
+
+  console.log(currentProjects);
   return (
     <>
     <div className="w-full h-[50px] flex flex-wrap gap-3 md:gap-10 items-center mt-5 mb-4 md:mt-3 md:font-semibold">
@@ -62,7 +64,7 @@ function ProjectItem() {
         {currentProjects.map((currentProject) => {
           return (
             <div
-              key={currentProject.id}
+              key={currentProject._id}
               className="rounded-2xl overflow-hidden cursor-pointer shadow-lg relative h-64 group "
               onClick={() => route.push(`/portfolio/${currentProject._id}`)}
             >
