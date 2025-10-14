@@ -75,19 +75,6 @@ function GallerySlider({ images }) {
           ))}
         </CarouselContent>
       </Carousel>
-     
-
-      {/* <div className="flex mt-4 gap-0.5 ">
-        {images?.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => api?.scrollTo(index)}
-            className={`h-1.5 rounded-full transition-all duration-150 ease-in-out cursor-pointer ${
-              activeIndex === index ? "bg-yellow-500 w-5" : "bg-gray-400 w-3"
-            }`}
-          />
-        ))}
-      </div> */}
     </div>
   );
 }
