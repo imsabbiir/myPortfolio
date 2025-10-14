@@ -10,7 +10,7 @@ export default function TinyEditor({value, onEditorChange}) {
   return (
     <div className="mt-5">
       <Editor
-        apiKey="9uvk7rg4faiuobmtr8lt3t97cetb04d27wzh1emsmzg817vj"
+        apiKey="vjmujybpxftoozpuhxmu0iq04ih2zebaof9cknxi74neiqip"
         onInit={(_evt, editor) => (editorRef.current = editor)}
         onEditorChange={onEditorChange}
         value={value}
