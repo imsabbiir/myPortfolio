@@ -46,7 +46,7 @@ function ProjectItem() {
 
   console.log(currentProjects);
   return (
-    <>
+    <div>
     <div className="w-full h-[50px] flex flex-wrap gap-3 md:gap-10 items-center mt-5 mb-4 md:mt-3 md:font-semibold">
       {
         NavButtons.map((dt) => (
@@ -109,7 +109,7 @@ function ProjectItem() {
           </button>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

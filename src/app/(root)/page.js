@@ -2,6 +2,7 @@ import Accomplishments from "@/Components/Accomplishments";
 import Banner from "@/Components/HomePage/Banner";
 import PricePlan from "@/Components/HomePage/PricePlan";
 import Services from "@/Components/HomePage/Services";
+import Review from "@/Components/portfolio/Review";
 import React from "react";
 
 function page() {
