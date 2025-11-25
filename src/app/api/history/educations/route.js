@@ -4,7 +4,7 @@ import Educations from "@/models/educations";
 export async function GET(request) {
     try{
         await dbConnect();
-        const educations = await Educations.find()
+        const educations = await Educations.find().sort({ id : 1 })
         return Response.json(educations);
     }catch(error){
         return Response.json(
