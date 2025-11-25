@@ -28,4 +28,4 @@ const experienceSchema = new mongoose.Schema({
   }
 });
 
-export default mongoose.models.Education || mongoose.model("Education", experienceSchema);
+export default mongoose.models.Experience || mongoose.model("Experience", experienceSchema);
