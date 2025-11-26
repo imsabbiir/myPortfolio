@@ -47,7 +47,7 @@ function AdminNavBar({isSidebarOpen}) {
 
   return (
     <div
-      className={`h-full boxBg absolute  md:static md:left-0 shadow-lg flex flex-col py-6 space-y-6 justify-center px-4 z-40 transition-all duration-700 ease-in-out ${
+      className={`h-full boxBg absolute  md:static md:left-0 shadow-lg flex flex-col py-6 space-y-6 justify-center px-4 z-40 transition-all duration-700 ease-in-out overflow-hidden ${
         isSidebarOpen ? "w-20 left-0 md:w-64" : "w-20 -left-20"
       }`}
     >
