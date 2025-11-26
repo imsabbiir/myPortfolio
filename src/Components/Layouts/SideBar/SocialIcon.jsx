@@ -6,13 +6,15 @@ import {
   FaYoutube,
   FaTwitter,
 } from "react-icons/fa";
-
-function SocialIcon({ instagram, facebook, linkedin, twitter }) {
+function SocialIcon({instagram, facebook, linkedin, twitter}) {
   return (
-    <div className="iconBoxBg w-full py-3 flex justify-evenly items-center">
-      <ul className="flex justify-evenly w-full text-sm">
+    <div className="iconBoxBg w-full h-[7%] flex justify-evenly items-center gap-2 ">
+      <ul className="flex justify-evenly w-full  text-sm">
         <li className="social-icon textWithHover">
-          <a href={facebook?.link} target="_blank">
+          <a
+            href={facebook?.link}
+            target="_blank"
+          >
             <FaFacebookF />
           </a>
         </li>
