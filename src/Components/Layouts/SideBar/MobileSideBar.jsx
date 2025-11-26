@@ -87,7 +87,6 @@ function MobileSideBar() {
           <Skills />
         </div>
 
-        {/* Fixed Bottom */}
         <div className="shrink-0">
           <SocialIcon
             instagram={details?.instagram}
