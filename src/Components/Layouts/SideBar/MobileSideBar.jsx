@@ -82,7 +82,7 @@ function MobileSideBar() {
           profession={details?.profession}
         />
 
-        {/* Scrollable Middle */}
+
         <div className="flex-1 overflow-hidden">
           <Skills />
         </div>
