@@ -21,7 +21,6 @@ function SideBar() {
     fetchData();
   }, []);
 
-  
   return (
     <div
       ref={sideRef}
@@ -40,11 +39,20 @@ function SideBar() {
 
       <div className={`boxBg w-full h-screen relative lg:hidden`}>
         <div className="w-full h-[32%] bg-black">
-            {/* <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/> */}
+          <Profile
+            profileSrc={details?.profileImage}
+            name={details?.name}
+            profession={details?.profession}
+          />
         </div>
-        {/* <Skills /> */}
+        <Skills />
         <div className="w-full h-[7%] bg-black absolute bottom-0">
-            
+          <SocialIcon
+            instagram={details?.instagram}
+            facebook={details?.facebook}
+            twitter={details?.twitter}
+            linkedin={details?.linkedin}
+          />
         </div>
       </div>
     </div>
