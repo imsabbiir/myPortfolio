@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { HiDotsVertical } from "react-icons/hi";
+import Profile from "./Profile";
+import SocialIcon from "./SocialIcon";
+import Skills from "./Skills/Skills";
 function SideBar() {
   const sideRef = useRef(null);
   const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -17,6 +20,43 @@ function SideBar() {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const children = document.querySelector(".children");
+    const childrenOverlay = document.querySelector(".childrenOverlay");
+  
+    if (!children || !childrenOverlay) return;
+  
+    if (sideBarOpen) {
+      children.style.pointerEvents = "none";
+      childrenOverlay.classList.remove("opacity-0");
+      childrenOverlay.classList.remove("hidden");
+      childrenOverlay.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    } else {
+      children.style.pointerEvents = "all";
+      childrenOverlay.classList.remove("opacity-100");
+      childrenOverlay.classList.add("opacity-0");
+      childrenOverlay.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+  }, [sideBarOpen]);
+  
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (sideRef.current && !sideRef.current.contains(event.target)) {
+          setSideBarOpen(false);
+        }
+      }
+  
+      if (sideBarOpen) {
+        document.addEventListener("mousedown", handleClickOutside);
+      }
+  
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [sideBarOpen]);
   return (
     <div
       ref={sideRef}
@@ -34,8 +74,18 @@ function SideBar() {
       </div>
 
       <div className={`boxBg w-full h-screen relative lg:hidden`}>
-        <div className="w-full h-[32%] bg-black">s</div>
-        <div className="w-full h-[7%] bg-black absolute bottom-0">s</div>
+        <div className="w-full h-[32%] ">
+            <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
+        </div>
+        <Skills />
+        <div className="w-full h-[7%] absolute bottom-0">
+            <SocialIcon
+        instagram={details?.instagram}
+        facebook={details?.facebook}
+        twitter={details?.twitter}
+        linkedin={details?.linkedin}
+      />
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ function Profile({ loading, profileSrc, name, profession }) {
 
   return (
     <>
-      <div className="subBoxBg flex flex-col justify-center items-center h-[32%] w-full">
+      <div className="subBoxBg flex flex-col justify-center items-center h-full w-full">
         {/* Profile Image Container */}
         <div className="w-24 h-24 rounded-full relative cursor-pointer">
           <div className="group relative w-24 h-24 rounded-full overflow-hidden activeBg">

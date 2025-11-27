@@ -17,14 +17,13 @@ function Layout({ children }) {
       {/* Main Content */}
       <MobileNavLayout />
       <MobileNavBar />
-      {/* <MobileSideBar /> */}
     <SideBar />
       <div
         className={`transition-opacity duration-700 opacity-100 pointer-events-auto w-full h-screen`}
       >
         <div className="w-full h-full flex flex-col lg:flex-row justify-center items-center ">
           <div className="md:h-[calc(100vh-30px)] md:w-[calc(100%-30px)] containerBg flex justify-between overflow-hidden relative content">
-            {/* <LeftSideBar /> */}
+            <LeftSideBar />
 
             <Children>{children}</Children>
             <NavBar />
