@@ -78,13 +78,8 @@ function SideBar() {
             <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
         </div>
         <Skills />
-        <div className="w-full h-[7%] absolute bottom-0">
-            <SocialIcon
-        instagram={details?.instagram}
-        facebook={details?.facebook}
-        twitter={details?.twitter}
-        linkedin={details?.linkedin}
-      />
+        <div className="w-full h-[7%] bg-black absolute bottom-0">
+            <h2 className="text-white">hello</h2>
         </div>
       </div>
     </div>
