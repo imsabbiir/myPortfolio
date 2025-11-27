@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 function SocialIcon({instagram, facebook, linkedin, twitter}) {
   return (
-    <div className="iconBoxBg w-full h-[7%] flex justify-evenly items-center gap-2 ">
+    <div className="iconBoxBg w-full h-full flex justify-evenly items-center gap-2 ">
       <ul className="flex justify-evenly w-full  text-sm">
         <li className="social-icon textWithHover">
           <a

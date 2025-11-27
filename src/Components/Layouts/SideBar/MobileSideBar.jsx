@@ -8,25 +8,25 @@ function MobileSideBar() {
   const [sideBarOpen, setSideBarOpen] = useState(false);
   const sideRef = useRef(null);
   useEffect(() => {
-  const children = document.querySelector(".children");
-  const childrenOverlay = document.querySelector(".childrenOverlay");
+    const children = document.querySelector(".children");
+    const childrenOverlay = document.querySelector(".childrenOverlay");
 
-  if (!children || !childrenOverlay) return;
+    if (!children || !childrenOverlay) return;
 
-  if (sideBarOpen) {
-    children.style.pointerEvents = "none";
-    childrenOverlay.classList.remove("opacity-0");
-    childrenOverlay.classList.remove("hidden");
-    childrenOverlay.classList.add("opacity-100");
-    document.body.style.overflow = "hidden";
-  } else {
-    children.style.pointerEvents = "all";
-    childrenOverlay.classList.remove("opacity-100");
-    childrenOverlay.classList.add("opacity-0");
-    childrenOverlay.classList.add("hidden");
-    document.body.style.overflow = "auto";
-  }
-}, [sideBarOpen]);
+    if (sideBarOpen) {
+      children.style.pointerEvents = "none";
+      childrenOverlay.classList.remove("opacity-0");
+      childrenOverlay.classList.remove("hidden");
+      childrenOverlay.classList.add("opacity-100");
+      document.body.style.overflow = "hidden";
+    } else {
+      children.style.pointerEvents = "all";
+      childrenOverlay.classList.remove("opacity-100");
+      childrenOverlay.classList.add("opacity-0");
+      childrenOverlay.classList.add("hidden");
+      document.body.style.overflow = "auto";
+    }
+  }, [sideBarOpen]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -45,18 +45,18 @@ function MobileSideBar() {
   }, [sideBarOpen]);
 
   const [details, setDetails] = useState([]);
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await fetch("/api/developerdetails");
-          const data = await response.json();
-          setDetails(data);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-      fetchData();
-    }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/developerdetails");
+        const data = await response.json();
+        setDetails(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div
       ref={sideRef}
@@ -72,21 +72,17 @@ function MobileSideBar() {
       >
         <HiDotsVertical className="subTitleText" />
       </div>
-      
-      <div className={`boxBg w-full h-screen lg:hidden`}>
-        <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
-        <Skills
-        skills={details?.skills}
-        residence={details?.residence}
-        city={details?.city}
-        district={details?.district}
-      />
-        <SocialIcon
-        instagram={details?.instagram}
-        facebook={details?.facebook}
-        twitter={details?.twitter}
-        linkedin={details?.linkedin}
-      />
+
+      <div className={`boxBg w-full h-screen lg:hidden relative`}>
+        <Profile
+          profileSrc={details?.profileImage}
+          name={details?.name}
+          profession={details?.profession}
+        />
+        <Skills />
+        <div className="w-full h-[7%] absolute bottom-0">
+          <SocialIcon />
+        </div>
       </div>
     </div>
   );
