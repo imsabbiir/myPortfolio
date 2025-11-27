@@ -74,8 +74,8 @@ function SideBar() {
       </div>
 
       <div className={`boxBg w-full h-screen relative lg:hidden`}>
-        <div className="w-full h-[32%] ">
-            <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
+        <div className="w-full h-[32%] bg-black">
+            {/* <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/> */}
         </div>
         {/* <Skills /> */}
         <div className="w-full h-[7%] bg-black absolute bottom-0">
