@@ -1,0 +1,44 @@
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import { HiDotsVertical } from "react-icons/hi";
+function SideBar() {
+  const sideRef = useRef(null);
+  const [sideBarOpen, setSideBarOpen] = useState(false);
+  const [details, setDetails] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/developerdetails");
+        const data = await response.json();
+        setDetails(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+  return (
+    <div
+      ref={sideRef}
+      className={`absolute top-0 w-[290px] z-20 transition-all duration-500 lg:hidden ${
+        sideBarOpen ? "left-0" : "-left-[290px]"
+      }`}
+    >
+      <div
+        className={`h-20 w-20 flex justify-center items-center transition-all duration-500 ease-in-out cursor-pointer absolute ${
+          sideBarOpen ? "right-0" : "-right-20"
+        } z-30`}
+        onClick={() => setSideBarOpen(!sideBarOpen)}
+      >
+        <HiDotsVertical className="subTitleText" />
+      </div>
+
+      <div className={`boxBg w-full h-screen relative lg:hidden`}>
+        <div className="w-full h-[32%] bg-black">s</div>
+        <div className="w-full h-[7%] bg-black absolute bottom-0">s</div>
+      </div>
+    </div>
+  );
+}
+
+export default SideBar;
