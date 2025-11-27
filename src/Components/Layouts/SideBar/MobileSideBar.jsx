@@ -75,8 +75,18 @@ function MobileSideBar() {
       
       <div className={`boxBg w-full h-screen lg:hidden`}>
         <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
-        <Skills />
-        <SocialIcon />
+        <Skills
+        skills={details?.skills}
+        residence={details?.residence}
+        city={details?.city}
+        district={details?.district}
+      />
+        <SocialIcon
+        instagram={details?.instagram}
+        facebook={details?.facebook}
+        twitter={details?.twitter}
+        linkedin={details?.linkedin}
+      />
       </div>
     </div>
   );
