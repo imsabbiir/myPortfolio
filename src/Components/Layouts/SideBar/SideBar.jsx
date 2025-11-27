@@ -79,7 +79,7 @@ function SideBar() {
         </div>
         {/* <Skills /> */}
         <div className="w-full h-[7%] bg-black absolute bottom-0">
-            <h2 className="text-white">hello</h2>
+            
         </div>
       </div>
     </div>
