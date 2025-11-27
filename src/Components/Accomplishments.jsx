@@ -9,12 +9,12 @@ function Accomplishments() {
       title: "Years Experience"
     },
     {
-      number: "07",
+      number: "09",
       plus: "",
       title: "Completed Projects"
     },
     {
-      number: "03",
+      number: "04",
       plus: "",
       title: "Happy Customers"
     },

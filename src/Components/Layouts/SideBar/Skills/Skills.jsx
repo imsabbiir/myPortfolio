@@ -35,7 +35,7 @@ function Skills({residence, city, district}) {
       alwaysShowTracks={false}
       continuousScrolling={true}
     >
-      <div className="px-6 pt-5 h-[62%]">
+      <div className="px-6 pt-5 h-[61%]">
         <Address residence={residence} city={city} district={district}/>
         <Language languages={skills?.languages} />
         <SkillBars technologies={skills?.technologies} />

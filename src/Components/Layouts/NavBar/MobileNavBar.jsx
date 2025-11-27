@@ -83,9 +83,6 @@ function MobileNavBar() {
         isNavBarOpen={isNavBarOpen}
         setIsNavBarOpen={setIsNavBarOpen}
       />
-
-      {/* Dark and light mode icon */}
-      <ThemeButton />
     </div>
   );
 }

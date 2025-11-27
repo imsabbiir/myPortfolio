@@ -6,7 +6,6 @@ import SocialIcon from "./SocialIcon";
 
 export default function LeftSideBar() {
   const [details, setDetails] = useState(null);
-
   useEffect(() => {
     const fetchDetails = async () => {
       try {
@@ -20,6 +19,9 @@ export default function LeftSideBar() {
 
     fetchDetails();
   }, []);
+
+
+  
 
   return (
     <div className="sideBar boxBg static -left-[290px] h-full lg:flex flex-col justify-between w-[290px] flex-shrink-0 transition-all duration-500 ease-in-out hidden">

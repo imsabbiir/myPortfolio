@@ -20,7 +20,42 @@ function SideBar() {
     };
     fetchData();
   }, []);
+  useEffect(() => {
+  const children = document.querySelector(".children");
+  const childrenOverlay = document.querySelector(".childrenOverlay");
 
+  if (!children || !childrenOverlay) return;
+
+  if (sideBarOpen) {
+    children.style.pointerEvents = "none";
+    childrenOverlay.classList.remove("opacity-0");
+    childrenOverlay.classList.remove("hidden");
+    childrenOverlay.classList.add("opacity-100");
+    document.body.style.overflow = "hidden";
+  } else {
+    children.style.pointerEvents = "all";
+    childrenOverlay.classList.remove("opacity-100");
+    childrenOverlay.classList.add("opacity-0");
+    childrenOverlay.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  }
+}, [sideBarOpen]);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (sideRef.current && !sideRef.current.contains(event.target)) {
+        setSideBarOpen(false);
+      }
+    }
+
+    if (sideBarOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [sideBarOpen]);
   return (
     <div
       ref={sideRef}
