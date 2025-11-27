@@ -77,7 +77,7 @@ function SideBar() {
         <div className="w-full h-[32%] ">
             <Profile profileSrc={details?.profileImage} name={details?.name} profession={details?.profession}/>
         </div>
-        <Skills />
+        {/* <Skills /> */}
         <div className="w-full h-[7%] bg-black absolute bottom-0">
             <h2 className="text-white">hello</h2>
         </div>
