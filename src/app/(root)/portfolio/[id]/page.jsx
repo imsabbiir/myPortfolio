@@ -15,6 +15,7 @@ const fetchProject = async (id) => {
 async function Page({ params }) {
   const { id } = await params;
   const project = await fetchProject(id);
+  console.log("project from project details page:", project)
   if (!project)
     return <div className="p-4 activeText">Project not found.</div>;
 

@@ -3,7 +3,8 @@ import Project from "@/models/project";
 import { NextResponse } from "next/server";
 export async function GET(request, { params }) {
   await dbConnect();
-  const { id } = params;
+  const { id } = await params;
+  console.log(id, "from project details api")
   try {
     const project = await Project.findById(id);
     if (!project) {
