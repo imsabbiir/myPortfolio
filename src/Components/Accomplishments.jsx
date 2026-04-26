@@ -1,6 +1,6 @@
 import React from "react";
 async function Accomplishments() {
-  const res = await fetch("http://localhost:3000/api/projectCount", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/projectCount`, {
     cache: "no-store",
   });
   const data = await res.json();
