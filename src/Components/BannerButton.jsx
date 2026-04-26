@@ -1,15 +1,12 @@
-'use client'
+import Link from "next/link";
 import React from "react";
-import { useRouter } from "next/navigation";
 function BannerButton({ title, address }) {
-      const route = useRouter()
   return (
-    <button
+    <Link href={`/${address}`}
       className="py-3 px-5 activeBg text-[#20202a] text-[11px] cursor-pointer font-semibold"
-      onClick={() => route.push(`/${address}`)}
     >
       {title}
-    </button>
+    </Link>
   );
 }
 

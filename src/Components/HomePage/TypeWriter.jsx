@@ -22,7 +22,7 @@ function TypeWriter() {
         <span className="activeText"> code </span>
         <span>&gt;</span>
       </div>
-      I build{" "}
+      I build
       <span id="typewriter" className="inline-block md:ml-3">
         {" "}
       </span>

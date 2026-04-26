@@ -8,7 +8,7 @@ export async function middleware(request) {
     const isApiProtected = pathname.startsWith("/api/");
     const isAdminRoot = pathname === '/admin';
     if (isAdminRoot && token) {
-    return NextResponse.redirect(new URL("/admin/dashboard", request.url));
+    return NextResponse.redirect(new URL("/admin/projects", request.url));
   }
 //     if (isApiProtected && !token) {
 //     return NextResponse.redirect(new URL("/", request.url));

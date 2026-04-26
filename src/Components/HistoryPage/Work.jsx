@@ -1,16 +1,33 @@
 import React from "react";
-const fetchExperiences = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/history/experiences`,
-    {
-      cache: "no-store",
-    }
-  );
-  const data = await res.json();
-  return data;
-};
+const experiences = [
+  {
+    id: 1,
+    title: "Web Development Internship",
+    address: "Dhanmondi, Dhaka",
+    institute: "Creative It",
+    time: "Full Time",
+    year: "2021-2022",
+  },
+  {
+    id: 2,
+    title: "WordPress Customization",
+    address: "Section 06, Mirpur, Dhaka",
+    institute: "IN Technology Ltd",
+    time: "Part Time",
+    year: "2022-2023",
+  },
+  {
+    id: 3,
+    title: "Website Maintenance",
+    address: "Brammandi, Velanogor, Narsingdi",
+    institute: "Digital Institute of Information and Technology",
+    time: "Full Time",
+    year: "2018-2019",
+  },
+];
+
 async function Work() {
-  const experiences = await fetchExperiences();
+
 
 
   return (

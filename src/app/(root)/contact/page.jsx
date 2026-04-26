@@ -6,10 +6,12 @@ export const metadata = {
   description: "",
 };
 function page() {
+  
   return (
     <div className="p-5 md:p-0">
       <PersonalInfo />
       <ContactForm />
+      
     </div>
   );
 }

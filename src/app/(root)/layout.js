@@ -17,7 +17,7 @@ function Layout({ children }) {
       {/* Main Content */}
       <MobileNavLayout />
       <MobileNavBar />
-    <SideBar />
+      <SideBar />
       <div
         className={`transition-opacity duration-700 opacity-100 pointer-events-auto w-full h-screen`}
       >

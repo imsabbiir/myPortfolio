@@ -63,7 +63,7 @@ function PersonalInfo() {
                   {item.label}
                 </h2>
                 <a href={item?.link} target="_blank" rel="noopener noreferrer">
-                  <h2 className={`${item?.link ? "text-blue-500 hover:underline" : "defaultText"}`}>{item.value}</h2>
+                  <h2 className={`${item?.link ? "text-[#ffc107] hover:underline" : "defaultText"}`}>{item.value}</h2>
                 </a>
               </div>
             ))}

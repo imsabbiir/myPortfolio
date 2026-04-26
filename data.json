@@ -1,0 +1,85 @@
+{
+  "_id": {
+    "$oid": "6860244fc26cda55aea167dc"
+  },
+  "technologies": [
+    {
+      "title": "HTML",
+      "percent": "95",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a2"
+      }
+    },
+    {
+      "title": "CSS",
+      "percent": "90",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a3"
+      }
+    },
+    {
+      "title": "JavaScript",
+      "percent": "85",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a4"
+      }
+    },
+    {
+      "title": "React",
+      "percent": "85",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a5"
+      }
+    },
+    {
+      "title": "Next",
+      "percent": "80",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a6"
+      }
+    },
+    {
+      "title": "MongoDB",
+      "percent": "80",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0a7"
+      }
+    }
+  ],
+  "others": [
+    "Tailwind, SCSS, Bootstrap",
+    "Material UI, Shadcn UI, Hero UI",
+    "WordPress, Blogger, Webflow",
+    "WebRTC, WebSocket, Socket.IO",
+    "Auth.js, JWT, Stripe, Redux",
+    "Git, GitHub, Postman, VS Code",
+    "Word, Excel, PowerPoint, Access",
+    "ChatGPT, DALL·E, Gemini, Copilot",
+    "Vercel, JSON, REST API",
+    "Photoshop, CapCut"
+  ],
+  "languages": [
+    {
+      "title": "bangla",
+      "percent": "100",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0aa"
+      }
+    },
+    {
+      "title": "English",
+      "percent": "90",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0ab"
+      }
+    },
+    {
+      "title": "hindi",
+      "percent": "50",
+      "_id": {
+        "$oid": "6860d3ab35c455517c14b0ac"
+      }
+    }
+  ],
+  "__v": 1
+}

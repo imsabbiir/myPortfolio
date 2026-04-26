@@ -76,7 +76,7 @@ function NavBar() {
       />
 
       {/* Dark and light mode icon */}
-      <ThemeButton />
+      {/* <ThemeButton /> */}
     </div>
   );
 }

@@ -31,7 +31,7 @@ function page() {
 
       if (res.ok) {
         alert('Login successful!');
-        window.location.href = '/admin/dashboard'; // Redirect to protected route
+        window.location.href = '/admin/projects'; // Redirect to protected route
       } else {
         alert(data.message || 'Login failed!');
       }

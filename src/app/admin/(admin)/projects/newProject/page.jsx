@@ -165,7 +165,7 @@ function Page() {
   };
 
   return (
-    <div>
+    <div className="pt-28 w-[85%] mx-auto">
       <h2 className="text-lg titleText">Add New Project</h2>
       <div className="grid lg:grid-cols-6 gap-14 mt-5">
         <div className="col-span-1 w-full lg:col-span-4">

@@ -3,41 +3,23 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { TbZoomScan } from "react-icons/tb";
 import dynamic from "next/dynamic";
-import { FaMoon } from "react-icons/fa6";
-// Lazy load ProfileModal with fallback
+import profile from "@/media/images/me.jpg";
+
+
 const ProfileModal = dynamic(() => import("@/Components/ProfileModal"), {
   loading: () => <div>Loading profile...</div>,
-  ssr: false, // Ensure this is only rendered on the client
+  ssr: false,
 });
 
-function Profile({ loading, profileSrc, name, profession }) {
+function Profile({ loading }) {
   const [isZoomed, setIsZoomed] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+
   if (loading) return null;
-  const handleTheme = () => {
-    const newTheme = isDark ? "light" : "dark";
-
-    if (newTheme === "dark") {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
-    }
-
-    localStorage.setItem("theme", newTheme);
-    setIsDark(!isDark);
-  };
+  
   return (
     <>
       <div className="subBoxBg flex flex-col justify-center items-center h-full w-full relative">
-        <div className="h-20 w-20 flex justify-center items-center absolute left-0 top-0 lg:hidden">
-          <span
-          className="activeText text-lg cursor-pointer h-10 w-10 flex justify-center items-center boxBg rounded-full"
-          onClick={handleTheme}
-          title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
-        >
-          <FaMoon />
-        </span>
-        </div>
+        
 
         {/* Profile Image Container */}
         <div className="w-24 h-24 rounded-full relative cursor-pointer">
@@ -51,15 +33,13 @@ function Profile({ loading, profileSrc, name, profession }) {
             </div>
 
             {/* Profile Image */}
-            {profileSrc && (
-              <Image
-                src={profileSrc}
-                alt={name}
-                width={96}
-                height={96}
-                className="object-cover w-24 h-24 rounded-full"
-              />
-            )}
+            <Image
+              src={profile}
+              alt={"Sabbir Ahmed Mridul"}
+              width={96}
+              height={96}
+              className="object-cover w-24 h-24 rounded-full"
+            />
           </div>
 
           {/* Active Dot */}
@@ -75,16 +55,18 @@ function Profile({ loading, profileSrc, name, profession }) {
 
         {/* Name & Profession */}
         <h1 className="textWithHover font-semibold cursor-pointer mt-2">
-          {name}
+          Sabbir Ahmed Mridul
         </h1>
-        <span className="text-xs font-thin subTitleText">{profession}</span>
+        <span className="text-xs font-thin subTitleText">
+          Front-end Developer
+        </span>
       </div>
 
       {/* Profile Modal */}
       <ProfileModal
         isZoomed={isZoomed}
         setIsZoomed={setIsZoomed}
-        modal={profileSrc}
+        modal={profile}
       />
     </>
   );

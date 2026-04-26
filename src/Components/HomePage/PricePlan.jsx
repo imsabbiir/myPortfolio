@@ -1,20 +1,106 @@
 import Link from "next/link";
 import React from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
-const fetchPricePlans = async () => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/packages`,
-    {
-      cache: "no-store",
-    }
-  );
-  const data = await res.json();
-  return data;
-};
+const pricingPlans = [
+  {
+    id: 1,
+    title: "Project Base",
+    price: "custom",
+    services: [
+      {
+        id: 101,
+        serviceName: "Front-end Development",
+        included: true,
+      },
+      {
+        id: 102,
+        serviceName: "WordPress Services",
+        included: true,
+      },
+      {
+        id: 103,
+        serviceName: "Blogger Services",
+        included: true,
+      },
+      {
+        id: 104,
+        serviceName: "Redesign and updates",
+        included: false,
+      },
+      {
+        id: 105,
+        serviceName: "Microsoft Office Services",
+        included: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Hourly payment",
+    price: "20",
+    services: [
+      {
+        id: 201,
+        serviceName: "Front-end Development",
+        included: true,
+      },
+      {
+        id: 202,
+        serviceName: "WordPress Services",
+        included: true,
+      },
+      {
+        id: 203,
+        serviceName: "Blogger Services",
+        included: true,
+      },
+      {
+        id: 204,
+        serviceName: "Redesign and updates",
+        included: true,
+      },
+      {
+        id: 205,
+        serviceName: "Microsoft Office Services",
+        included: true,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Full Time",
+    price: "1999",
+    services: [
+      {
+        id: 301,
+        serviceName: "Front-end Development",
+        included: true,
+      },
+      {
+        id: 302,
+        serviceName: "WordPress Services",
+        included: true,
+      },
+      {
+        id: 303,
+        serviceName: "Blogger Services",
+        included: true,
+      },
+      {
+        id: 304,
+        serviceName: "Redesign and updates",
+        included: true,
+      },
+      {
+        id: 305,
+        serviceName: "Microsoft Office Services",
+        included: true,
+      },
+    ],
+  },
+];
+
 async function PricePlan() {
-  const pricingPlans = await fetchPricePlans()
-
-
   return (
     <div className="mt-7">
       <h2 className="titleText font-semibold text-lg">Price Plans</h2>

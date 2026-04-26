@@ -1,25 +1,25 @@
 import React from "react";
 
-function Address({residence, city, district}) {
+function Address() {
   return (
     <div className="border-b-[1px] border-[#656566] pb-5 flex flex-col gap-2 text-xs">
       <div className="flex justify-between">
         <h3 className="titleText font-thin">
           Residence:
         </h3>
-        <span className="subTitleText">{residence}</span>
+        <span className="subTitleText">Bangladesh</span>
       </div>
       <div className="flex justify-between">
         <h3 className="titleText font-thin">
           City:
         </h3>
-        <span className="subTitleText">{city}</span>
+        <span className="subTitleText">Dhaka</span>
       </div>
       <div className="flex justify-between">
         <h3 className="titleText font-thin">
           District:
         </h3>
-        <span className="subTitleText">{district}</span>
+        <span className="subTitleText">Narayanganj</span>
       </div>
     </div>
   );

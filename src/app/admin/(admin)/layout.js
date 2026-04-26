@@ -1,36 +1,12 @@
-'use client'
-import React, { useState } from "react";
+import React from "react";
 import AdminNavBar from "../../../Components/adminComponents/AdminNavBar";
-import TopBar from "../../../Components/adminComponents/TopBar";
-import { Scrollbar } from "smooth-scrollbar-react";
-function Layout({ children }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  return (
-    <div className="w-full h-screen mainBg flex items-center justify-center">
-      <div className="containerBg w-[calc(100%-30px)] h-[calc(100vh-30px)] flex relative overflow-hidden">
-        <TopBar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
-        <AdminNavBar isSidebarOpen={isSidebarOpen}/>
-        <div className="mt-20 px-7 py-7 w-full overflow-y-auto">
-          <Scrollbar
-            className="hide-scrollbar"
-            plugins={{
-              overscroll: {
-                effect: "bounce",
-              },
-            }}
-            damping={0.05}
-            thumbMaxSize={20}
-            renderByPixels={true}
-            alwaysShowTracks={false}
-            continuousScrolling={true}
-          >
 
-              {children}
-            
-          </Scrollbar>
-        </div>
-      </div>
-    </div>
+function Layout({ children }) {
+  return (
+    <>
+      <AdminNavBar />
+      <div className="w-full mainBg">{children}</div>
+    </>
   );
 }
 

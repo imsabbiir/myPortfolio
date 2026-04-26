@@ -1,6 +1,38 @@
 import React from 'react';
+const technologies = [
+  {
+    id: 1,
+    title: "HTML",
+    percent: 95,
+  },
+  {
+    id: 2,
+    title: "CSS",
+    percent: 90,
+  },
+  {
+    id: 3,
+    title: "JavaScript",
+    percent: 85,
+  },
+  {
+    id: 4,
+    title: "React",
+    percent: 85,
+  },
+  {
+    id: 5,
+    title: "Next",
+    percent: 80,
+  },
+  {
+    id: 6,
+    title: "MongoDB",
+    percent: 80,
+  },
+];
 
-function SkillBars({technologies}) {
+function SkillBars() {
   return (
     <div className="border-b-[1px] border-[#656566] py-5 flex flex-col gap-4">
       {technologies?.map((skill, index) => (

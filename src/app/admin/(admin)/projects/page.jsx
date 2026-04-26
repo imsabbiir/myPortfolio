@@ -62,7 +62,7 @@ function Page() {
       setFilteredProjects(projects); // Reset to full list if empty
     } else {
       const filtered = projects.filter((project) =>
-        project.title.toLowerCase().includes(searchTerm.toLowerCase())
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()),
       );
       setFilteredProjects(filtered);
     }
@@ -76,7 +76,7 @@ function Page() {
 
   return (
     <>
-      <div className="w-full h-full ">
+      <div className="w-[85%] mx-auto pt-20">
         <div className="flex flex-col md:flex-row justify-between">
           <li
             onClick={() => router.push("projects/newProject")}
@@ -110,53 +110,58 @@ function Page() {
           ) : filteredProjects.length === 0 ? (
             <p className="text-center subTitleText mt-10">No projects found.</p>
           ) : (
-            <div className="flex flex-col gap-5 mt-5 pb-10">
+            <div className="grid md:grid-cols-4 gap-5 mt-5 pb-10">
               {filteredProjects.map((project) => (
-                <div
-                  key={project._id}
-                  className="relative w-full h-20 p-3 md:p-0 subBoxBg drop-shadow-lg flex flex-col md:flex-row md:justify-between rounded overflow-hidden"
-                >
-                  <div className="flex items-center gap-5">
+                <div className="flex h-full" key={project._id}>
+                  <div
+                    key={project._id}
+                    className="w-full h-full bg-[#252530] rounded-xl overflow-hidden"
+                  >
+                    <div className="h-36">
+
                     <Image
                       src={project.images[0]}
                       alt={project.title}
                       width={500}
                       height={500}
-                      className="w-40 h-full hidden md:flex"
-                    />
-                    <div>
+                      className="w-full h-full hidden md:flex"
+                      />
+                      </div>
+                    <div className="p-5">
                       <span className="text-[9px] subTitleText capitalize hidden md:block">
                         {project.projectType}
                       </span>
-                      <h2 className="text-xs md:text-base activeText">{project.title}</h2>
-                      <div
+                      <h2 className="text-xs md:text-base activeText">
+                        {project.title}
+                      </h2>
+                      <span
                         className="text-xs subTitleText hidden md:block"
                         dangerouslySetInnerHTML={{
                           __html: DOMPurify.sanitize(
                             stripHtml(project.description).length > 130
                               ? stripHtml(project.description).slice(0, 130) +
                                   "..."
-                              : project.description
+                              : project.description,
                           ),
                         }}
-                      ></div>
+                      ></span>
                     </div>
-                  </div>
-                  <div className="flex mt-3 md:mt-0 gap-3">
-                    <button
-                      className="textWithHover cursor-pointer"
-                      onClick={() =>
-                        router.push(`/admin/projects/edit/${project._id}`)
-                      }
-                    >
-                      <FaEdit />
-                    </button>
-                    <button
-                      className="textWithHover cursor-pointer"
-                      onClick={() => handleDeleteClick(project._id)}
-                    >
-                      <FaTrash />
-                    </button>
+                    <div className="pb-5 pl-5 flex gap-5">
+                      <button
+                        className="text-white cursor-pointer bg-blue-600 px-4 py-2 rounded text-xs"
+                        onClick={() =>
+                          router.push(`/admin/projects/edit/${project._id}`)
+                        }
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="text-white cursor-pointer bg-red-600 px-4 py-2 rounded text-xs"
+                        onClick={() => handleDeleteClick(project._id)}
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}

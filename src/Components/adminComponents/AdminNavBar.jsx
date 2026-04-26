@@ -1,80 +1,36 @@
-"use client";
-import React, { useState } from "react";
+'use client'
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MdDashboard, MdDesignServices } from "react-icons/md";
-import { FiMessageSquare, FiSettings } from "react-icons/fi";
 import { RiFolder3Fill } from "react-icons/ri";
-import { FaTools, FaCogs, FaBoxOpen } from "react-icons/fa";
 
 const data = [
-  {
-    title: "Dashboard",
-    icon: <MdDashboard />,
-    link: "dashboard",
-  },
-  {
-    title: "Messages",
-    icon: <FiMessageSquare />,
-    link: "messages",
-  },
-  {
-    title: "Services",
-    icon: <FaCogs />,
-    link: "services",
-  },
-  {
-    title: "Packages",
-    icon: <FaBoxOpen />,
-    link: "packages",
-  },
-  {
-    title: "Skills",
-    icon: <FaTools />,
-    link: "skills",
-  },
   {
     title: "Projects",
     icon: <RiFolder3Fill />,
     link: "projects",
   },
-  { title: "Settings", icon: <FiSettings />, link: "settings" },
 ];
 
-function AdminNavBar({isSidebarOpen}) {
+function AdminNavBar() {
   const pathname = usePathname();
-  
-
   return (
-    <div
-      className={`h-full boxBg absolute  md:static md:left-0 shadow-lg flex flex-col py-6 space-y-6 justify-center px-4 z-40 transition-all duration-700 ease-in-out overflow-hidden ${
-        isSidebarOpen ? "w-20 left-0 md:w-64" : "w-20 -left-20"
-      }`}
-    >
-      
-      <div className={` space-y-6 ${isSidebarOpen ? "" : ""}`}>
+    <div className="fixed top-0 left-0 w-full bg-[#252530] z-10">
+      <div className="w-[90%] mx-auto flex gap-10 py-3 justify-end">
         {data.map((dt, index) => {
           const isActive = pathname.includes(`/admin/${dt.link}`);
 
           return (
             <Link
-              key={index}
+            key={index}
               href={`/admin/${dt.link}`}
-              className={`group relative flex items-center gap-3 h-12 rounded-xl ${
-                isActive
-                  ? "activeBg text-[#1e1e28]"
-                  : "titleText hover:text-white bgHover "
-              }`}
+              className={`group relative flex items-center gap-3 py-2 px-4 rounded-xl ${isActive ? " text-[#ffc107]" : "text-white"}`}
             >
-              <div className="flex items-center">
-                <i className="w-12 h-12 flex justify-center items-center">
+              <div className="flex items-center gap-3">
+                <i className="flex justify-center items-center">
                   {dt.icon}
                 </i>
-                <span
-                  className={`transition-all duration-500 ease-in-out hidden md:block ${
-                    isSidebarOpen ? "opacity-100 ml-0" : "opacity-0 ml-5"
-                  }`}
-                >
+                <span>
                   {dt.title}
                 </span>
               </div>

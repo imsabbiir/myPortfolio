@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-function Language({languages}) {
-  const [isDark, setIsDark] = useState();
-  useEffect(()=>{
-    const checkDarkMode = () => {
-      setIsDark(document.body.classList.contains("dark"));
-    };
+const languages = [
+  {
+    id: 1,
+    title: "Bangla",
+    percent: 100,
+  },
+  {
+    id: 2,
+    title: "English",
+    percent: 90,
+  },
+  {
+    id: 3,
+    title: "Hindi",
+    percent: 50,
+  },
+];
 
-    // Run on mount
-    checkDarkMode();
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
-
-    // Clean up
-    return () => observer.disconnect();
-  }, []);
-
+function Language() {
   return (
     <div className="border-b-[1px] border-[#656566] py-5 flex gap-2 justify-around">
       {languages?.map((lang, index) => (
@@ -28,9 +31,9 @@ function Language({languages}) {
             value={lang.percent}
             text={`${lang.percent}%`}
             styles={buildStyles({
-              textColor: isDark ? "#fafafc" : "#181816",
-              pathColor: isDark ? "#ffc107" : "#c74d4d",
-              trailColor: isDark ? "#2c2c38" : "#2c2c38",
+              textColor: "#fafafc",
+              pathColor: "#ffc107",
+              trailColor: "#2c2c38",
             })}
           />
           <p className="titleText text-xs capitalize">{lang.title}</p>

@@ -185,7 +185,7 @@ function Page() {
   if (loading) return <p className="titleText text-center mt-10">Loading...</p>;
 
   return (
-    <div>
+    <div className="pt-20 w-[85%] mx-auto">
       <h2 className="text-lg titleText">Edit Project</h2>
       <div className="grid grid-cols-6 gap-14 mt-5">
         <div className="col-span-4">

@@ -247,7 +247,7 @@ li::marker {
 
 
 
-:root {
+/* :root {
   --mainBodyBg: #f8f8f9;
   --container: #eee3bc;
   --box: #96a8a6;
@@ -262,9 +262,9 @@ li::marker {
   --swapBg: #1e1e28;
   --chartBg: #ffffff;
   --gradient: linear-gradient(0deg, #96a8a6 0%, #96a8a6 100%);
-}
+} */
 
-.dark {
+:root {
   --mainBodyBg: #191923;
   --container: #1e1e28;
   --box: #20202a;
