@@ -34,7 +34,7 @@
     "lucide-react": "^0.517.0",
     "mongodb": "^6.18.0",
     "mongoose": "^8.15.2",
-    "next": "15.3.3",
+    "next": "^16.2.4",
     "nodemailer": "^8.0.6",
     "primereact": "^10.9.7",
     "quill": "^2.0.3",
