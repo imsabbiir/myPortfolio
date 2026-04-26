@@ -198,7 +198,7 @@ function ContactForm() {
         </form>
 
         {/* RIGHT SIDE (unchanged) */}
-        <section className="flex flex-1 boxBg p-6 lg:p-8 overflow-y-auto min-h-75">
+        <section className="flex-1 boxBg p-6 lg:p-8 overflow-y-auto min-h-75 hidden md:flex">
           <div className="m-auto w-full max-w-lg">
             <div className="flex gap-4 md:gap-6 text-[13px] md:text-sm leading-relaxed overflow-x-auto">
               <div className="text-right opacity-30 select-none hidden sm:block">
